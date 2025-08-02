@@ -1,0 +1,26 @@
+backend/
+├── server.js                 # Main server entry point
+├── package.json              # Dependencies
+├── .env                      # Environment variables
+├── config/
+│   └── database.js           # MongoDB connection
+├── models/
+│   ├── User.js              # User model
+│   ├── Hostel.js            # Hostel model
+│   └── Room.js              # Room model
+├── controllers/
+│   ├── authController.js    # Authentication logic
+│   ├── userController.js    # User CRUD operations
+│   ├── hostelController.js  # Hostel CRUD operations
+│   └── roomController.js    # Room CRUD operations
+├── middleware/
+│   ├── auth.js              # JWT verification
+│   └── authorize.js         # Role-based authorization
+├── routes/
+│   ├── auth.js              # Authentication routes
+│   ├── users.js             # User routes
+│   ├── hostels.js           # Hostel routes
+│   └── rooms.js             # Room routes
+└── utils/
+    ├── helpers.js           # Utility functions
+    └── constants.js         # Application constants
