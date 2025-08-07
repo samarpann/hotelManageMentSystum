@@ -3,11 +3,10 @@ import Room from '../models/Room.js';
 
 export const getHostels = async (req, res) => {
   try {
-    const query = req.user.role === 'owner' ? { owner: req.user._id } : {};
-    const hostels = await Hostel.find(query).populate('owner', 'name email');
-    res.json(hostels);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+    const hostels = await Hostel.find().populate('owner', 'name email role');
+    res.status(200).json(Array.isArray(hostels) ? hostels : []);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch hostels', error: err.message });
   }
 };
 

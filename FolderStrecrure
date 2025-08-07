@@ -24,3 +24,64 @@ backend/
 └── utils/
     ├── helpers.js           # Utility functions
     └── constants.js         # Application constants
+
+
+    frontend/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   └── Modal.jsx
+│   │   ├── forms/
+│   │   │   ├── UserForm.jsx
+│   │   │   ├── HostelForm.jsx
+│   │   │   └── RoomForm.jsx
+│   │   └── cards/
+│   │       ├── HostelCard.jsx
+│   │       ├── RoomCard.jsx
+│   │       └── StatsCard.jsx
+│   ├── pages/
+│   │   ├── auth/
+│   │   │   └── Login.jsx
+│   │   ├── dashboard/
+│   │   │   ├── SuperAdminDashboard.jsx
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   └── OwnerDashboard.jsx
+│   │   ├── users/
+│   │   │   ├── UserList.jsx
+│   │   │   └── UserManagement.jsx
+│   │   ├── hostels/
+│   │   │   ├── HostelList.jsx
+│   │   │   └── HostelManagement.jsx
+│   │   └── rooms/
+│   │       ├── RoomList.jsx
+│   │       └── RoomManagement.jsx
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   └── AppContext.jsx
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── authService.js
+│   │   ├── userService.js
+│   │   ├── hostelService.js
+│   │   └── roomService.js
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useApi.js
+│   │   └── useLocalStorage.js
+│   ├── utils/
+│   │   ├── constants.js
+│   │   ├── helpers.js
+│   │   └── validation.js
+│   ├── styles/
+│   │   ├── index.css
+│   │   └── components.css
+│   ├── App.jsx
+│   └── index.js
+├── package.json
+└── tailwind.config.js

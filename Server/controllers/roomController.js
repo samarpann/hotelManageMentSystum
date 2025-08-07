@@ -4,16 +4,23 @@ import Hostel from '../models/Hostel.js';
 export const getRooms = async (req, res) => {
   try {
     const { hostelId } = req.query;
-    const query = hostelId ? { hostel: hostelId } : {};
-    
+    let query = hostelId ? { hostel: hostelId } : {};
+
+    // If user is an owner, only fetch rooms for their hostel(s)
     if (req.user.role === 'owner') {
       const userHostels = await Hostel.find({ owner: req.user._id }).select('_id');
       const hostelIds = userHostels.map(h => h._id);
+
+      // If no hostels found for the owner, return empty array
+      if (!hostelIds.length) {
+        return res.status(200).json([]);
+      }
+
       query.hostel = { $in: hostelIds };
     }
 
     const rooms = await Room.find(query).populate('hostel', 'name');
-    res.json(rooms);
+    res.status(200).json(Array.isArray(rooms) ? rooms : []);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
